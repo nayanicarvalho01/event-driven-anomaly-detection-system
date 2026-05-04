@@ -24,34 +24,34 @@ Este projeto simula um ambiente industrial onde sensores monitoram um pipeline d
 │ - Flow              │
 │ - Temperature       │
 └──────────┬──────────┘
-│ Kafka Topics
-▼
+           │ Kafka Topics
+           ▼
 ┌─────────────────────┐
 │ Edge Gateway        │ (Validação + Normalização)
 └──────────┬──────────┘
-│
-▼
+           │
+           ▼
 ┌─────────────────────┐
 │ Apache Kafka        │ (Event Backbone)
 │ - pipeline.pressure │
 │ - pipeline.flow     │
 │ - pipeline.temp     │
 └──────────┬──────────┘
-│
-├──────────────────┐
-▼                  ▼
+           │
+           ├──────────────────┐
+           ▼                  ▼
 ┌──────────────────┐  ┌─────────────────┐
 │ Anomaly Detector │  │ Storage Writer  │
 │ (Kafka Streams)  │  │ (InfluxDB)      │
 └────────┬─────────┘  └─────────────────┘
-│
-▼
+         │
+         ▼
 ┌─────────────────────┐
 │ Incident Service    │
 │ + Alerting          │
 └─────────────────────┘
-│
-▼
+         │
+         ▼
 ┌─────────────────────┐
 │ Observability Stack │
 │ - Prometheus        │
